@@ -247,16 +247,27 @@ public:
     /* Turing Pattern Implementation */
     static b2Inline void TuringMixColors(
                                    b2ParticleColor * const colorA,
-                                   b2ParticleColor const colorUp,
-                                   b2ParticleColor const colorDown,
-                                   b2ParticleColor const colorLeft,
-                                   b2ParticleColor const colorRight,
+                                   std::vector<b2ParticleColor*> const colorB,
                                    const int32 coefficient
                                    )
     {
-        const uint8 dr = (uint8)((coefficient * (colorUp.r + colorDown.r + colorLeft.r + colorRight.r - 4 * colorA->r) / 0.01) >> k_bitsPerComponent);
-        const uint8 dg = (uint8)((coefficient * (colorUp.g + colorDown.g + colorLeft.g + colorRight.g - 4 * colorA->g) / 0.01) >> k_bitsPerComponent);
-        colorA->r += dr;
+        uint8 sumr = 0;
+        uint8 sumg = 0;
+        
+        for (int i = 0; i < colorB.size(); i++)
+        {
+            sumr += colorB[i]->r - colorA->r;
+        }
+        sumr = coefficient * sumr / 0.01 - colorA->r * colorA->g * colorA->g + 0.024 * (1 - colorA->a);
+        const uint8 dr = (uint8) ((uint8) sumr * 0.5 >> k_bitsPerComponent);
+        
+        for (int i = 0; i < colorB.size(); i++)
+        {
+            sumg += colorB[i]->g - colorA->g;
+        }
+        sumg = coefficient * sumg / 0.01 + colorA->r * colorA->g * colorA->g + 0.078 * colorA->g;
+        const uint8 dg = (uint8) ((uint8) sumg * 0.5 >> k_bitsPerComponent);
+        colorA->r += dr ;
         colorA->g += dg;
     }
 

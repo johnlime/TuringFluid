@@ -3857,27 +3857,29 @@ void b2ParticleSystem::SolveTuringColorMixing()
         for (int32 i = 0; i < unique_objects.size(); i++)
         {
             int32 a = unique_objects[i][0];
+            b2ParticleColor& colorA = m_colorBuffer.data[a];
+            std::vector<b2ParticleColor*> colorB;
             for (int32 j = 1; j < unique_objects[i].size(); j++)
             {
+                int32 b;
                 if (unique_objects[i][j] % 2 == 0)
                 {
-                    all_contact_buffers[unique_objects[i][j] + 1]
+                    b = all_contact_buffers[unique_objects[i][j] + 1]
                 }
                 else
                 {
-                    
+                    b = all_contact_buffers[unique_objects[i][j] - 1]
+                }
+                if (m_flagsBuffer.data[a] &
+                    m_flagsBuffer.data[b] &
+                    b2_turingColorMixingParticle)
+                {
+                    colorB.push_back(m_colorBuffer.data[b]);
                 }
             }
-                
-            if (m_flagsBuffer.data[a] & m_flagsBuffer.data[b] &
-                b2_turingColorMixingParticle)
-            {
-                b2ParticleColor& colorA = m_colorBuffer.data[a];
-                b2ParticleColor& colorB = m_colorBuffer.data[b];
-                // Use the static method to ensure certain compilers inline
-                // this correctly.
-                b2ParticleColor::TuringMixColors(&colorA, &colorB, colorMixing128);
-            }
+            // Use the static method to ensure certain compilers inline
+            // this correctly.
+            b2ParticleColor::TuringMixColors(&colorA, colorB, colorMixing128);
         }
         delete[] all_contact_buffers;
     }
