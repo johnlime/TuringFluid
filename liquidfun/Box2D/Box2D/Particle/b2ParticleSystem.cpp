@@ -3844,12 +3844,16 @@ void b2ParticleSystem::SolveTuringColorMixing()
             // If the colliding particle is unique in unique objects
             if (a_unique)
             {
-                unique_objects.push_back(a);
+                std::vector<int32> tmp;
+                tmp.push_back(a);
+                unique_objects.push_back(tmp);
                 unique_objects[unique_objects.size() - 1].push_back(k * 2);
             }
             if (b_unique)
             {
-                unique_objects.push_back(b);
+                std::vector<int32> tmp;
+                tmp.push_back(b);
+                unique_objects.push_back(tmp);
                 unique_objects[unique_objects.size() - 1].push_back(k * 2 + 1);
             }
         }
@@ -3864,17 +3868,17 @@ void b2ParticleSystem::SolveTuringColorMixing()
                 int32 b;
                 if (unique_objects[i][j] % 2 == 0)
                 {
-                    b = all_contact_buffers[unique_objects[i][j] + 1]
+                    b = all_contact_buffers[unique_objects[i][j] + 1];
                 }
                 else
                 {
-                    b = all_contact_buffers[unique_objects[i][j] - 1]
+                    b = all_contact_buffers[unique_objects[i][j] - 1];
                 }
                 if (m_flagsBuffer.data[a] &
                     m_flagsBuffer.data[b] &
                     b2_turingColorMixingParticle)
                 {
-                    colorB.push_back(m_colorBuffer.data[b]);
+                    colorB.push_back(&m_colorBuffer.data[b]);
                 }
             }
             // Use the static method to ensure certain compilers inline
@@ -3882,6 +3886,7 @@ void b2ParticleSystem::SolveTuringColorMixing()
             b2ParticleColor::TuringMixColors(&colorA, colorB, colorMixing128);
         }
         delete[] all_contact_buffers;
+        
     }
 }
 

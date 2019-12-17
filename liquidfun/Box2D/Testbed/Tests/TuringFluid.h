@@ -67,7 +67,7 @@ public:
         {
             // Define particle group
             b2ParticleGroupDef pd;
-            pd.flags = b2_tensileParticle | b2_turingColorMixingParticle;
+            pd.flags = b2_turingColorMixingParticle;
 
             // Define particle spawn area
             b2PolygonShape shape;
@@ -75,7 +75,6 @@ public:
             pd.shape = &shape;
 
             // Spawn particles
-//            m_particleSystem->CreateParticleGroup(pd);
             b2ParticleGroup * const group = m_particleSystem->CreateParticleGroup(pd);
             if (pd.flags & (b2_colorMixingParticle | b2_turingColorMixingParticle))
             {

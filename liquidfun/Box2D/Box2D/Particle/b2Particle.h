@@ -22,6 +22,9 @@
 #include <Box2D/Common/b2Settings.h>
 #include <Box2D/Common/b2IntrusiveList.h>
 
+#include <iostream>
+#include <vector>
+
 struct b2Color;
 class b2ParticleGroup;
 
@@ -259,14 +262,14 @@ public:
             sumr += colorB[i]->r - colorA->r;
         }
         sumr = coefficient * sumr / 0.01 - colorA->r * colorA->g * colorA->g + 0.024 * (1 - colorA->a);
-        const uint8 dr = (uint8) ((uint8) sumr * 0.5 >> k_bitsPerComponent);
+        const uint8 dr = (uint8)((int32)sumr >> k_bitsPerComponent);
         
         for (int i = 0; i < colorB.size(); i++)
         {
             sumg += colorB[i]->g - colorA->g;
         }
         sumg = coefficient * sumg / 0.01 + colorA->r * colorA->g * colorA->g + 0.078 * colorA->g;
-        const uint8 dg = (uint8) ((uint8) sumg * 0.5 >> k_bitsPerComponent);
+        const uint8 dg = (uint8)((int32)sumg >> k_bitsPerComponent);
         colorA->r += dr ;
         colorA->g += dg;
     }
