@@ -19,5 +19,3 @@ Build `All Build` in Xcode and run `Testbed` in order to visualize the simulatio
 
 ##### Current Problems
 Slow execution. Massive drop in framerate.
-
-Possible necessity in changing parameters in the TuringColorMixing class for better simulation.
