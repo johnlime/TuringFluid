@@ -584,6 +584,40 @@
 			<key>uniqueIdentifier</key>
 			<string>58684FD8-8BDA-489F-9053-4C945D5263FF</string>
 		</dict>
+		<key>598422BC-BDF9-4600-91C9-5C8D0CB87CC8</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.BuildLog</string>
+			<key>fileName</key>
+			<string>598422BC-BDF9-4600-91C9-5C8D0CB87CC8.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>schemeIdentifier-containerName</key>
+			<string>Box2D project</string>
+			<key>schemeIdentifier-schemeName</key>
+			<string>Testbed</string>
+			<key>schemeIdentifier-sharedScheme</key>
+			<integer>1</integer>
+			<key>signature</key>
+			<string>Build Testbed</string>
+			<key>timeStartedRecording</key>
+			<real>598298339.64489102</real>
+			<key>timeStoppedRecording</key>
+			<real>598298343.79412198</real>
+			<key>title</key>
+			<string>Build Testbed</string>
+			<key>uniqueIdentifier</key>
+			<string>598422BC-BDF9-4600-91C9-5C8D0CB87CC8</string>
+		</dict>
 		<key>599C206F-3E24-4898-B291-052838244307</key>
 		<dict>
 			<key>className</key>

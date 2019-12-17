@@ -6,34 +6,6 @@
 	<integer>10</integer>
 	<key>logs</key>
 	<dict>
-		<key>059D9029-19CF-4DB8-B9F1-CE597A5C1143</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogMajorGroupSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.target.product-type.library.static</string>
-			<key>fileName</key>
-			<string>059D9029-19CF-4DB8-B9F1-CE597A5C1143.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>glui-gpcnhfsxqmdeovautcobhrvzdkki</string>
-			<key>timeStartedRecording</key>
-			<real>598297776.66253698</real>
-			<key>timeStoppedRecording</key>
-			<real>598297776.67116404</real>
-			<key>title</key>
-			<string>Build target glui</string>
-			<key>uniqueIdentifier</key>
-			<string>059D9029-19CF-4DB8-B9F1-CE597A5C1143</string>
-		</dict>
 		<key>074CEF71-5C43-4C9F-849A-0411E111028C</key>
 		<dict>
 			<key>className</key>
@@ -145,34 +117,6 @@
 			<string>Build target FunctionTests</string>
 			<key>uniqueIdentifier</key>
 			<string>1B510A1B-FB2C-49A2-8279-FDBEC7FE9FF4</string>
-		</dict>
-		<key>490A6D05-264E-425E-8BE1-D0B1B7B56FDC</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogMajorGroupSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.target.product-type.tool</string>
-			<key>fileName</key>
-			<string>490A6D05-264E-425E-8BE1-D0B1B7B56FDC.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>W</string>
-			</dict>
-			<key>signature</key>
-			<string>Testbed-gpcnhfsxqmdeovautcobhrvzdkki</string>
-			<key>timeStartedRecording</key>
-			<real>598297776.67389297</real>
-			<key>timeStoppedRecording</key>
-			<real>598297776.67781901</real>
-			<key>title</key>
-			<string>Build target Testbed</string>
-			<key>uniqueIdentifier</key>
-			<string>490A6D05-264E-425E-8BE1-D0B1B7B56FDC</string>
 		</dict>
 		<key>6355DE1F-E21B-4B79-B9AF-99484EED8E67</key>
 		<dict>
@@ -286,6 +230,34 @@
 			<key>uniqueIdentifier</key>
 			<string>707D652D-3954-436E-867C-A9E67DA56591</string>
 		</dict>
+		<key>7327643F-0B91-4E11-8B01-51E6B1880465</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogMajorGroupSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.library.static</string>
+			<key>fileName</key>
+			<string>7327643F-0B91-4E11-8B01-51E6B1880465.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>freeglut_static-gpcnhfsxqmdeovautcobhrvzdkki</string>
+			<key>timeStartedRecording</key>
+			<real>598298339.66980696</real>
+			<key>timeStoppedRecording</key>
+			<real>598298339.68788695</real>
+			<key>title</key>
+			<string>Build target freeglut_static</string>
+			<key>uniqueIdentifier</key>
+			<string>7327643F-0B91-4E11-8B01-51E6B1880465</string>
+		</dict>
 		<key>89EB0517-C054-42DF-BC26-8E0D8D9DB7FA</key>
 		<dict>
 			<key>className</key>
@@ -313,6 +285,34 @@
 			<string>Build target HelloWorldTests</string>
 			<key>uniqueIdentifier</key>
 			<string>89EB0517-C054-42DF-BC26-8E0D8D9DB7FA</string>
+		</dict>
+		<key>97E6008D-BB68-41F3-A1C9-B50D55FA368A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogMajorGroupSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.tool</string>
+			<key>fileName</key>
+			<string>97E6008D-BB68-41F3-A1C9-B50D55FA368A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>W</string>
+			</dict>
+			<key>signature</key>
+			<string>Testbed-gpcnhfsxqmdeovautcobhrvzdkki</string>
+			<key>timeStartedRecording</key>
+			<real>598298341.99248803</real>
+			<key>timeStoppedRecording</key>
+			<real>598298343.78725803</real>
+			<key>title</key>
+			<string>Build target Testbed</string>
+			<key>uniqueIdentifier</key>
+			<string>97E6008D-BB68-41F3-A1C9-B50D55FA368A</string>
 		</dict>
 		<key>98BF2814-2EB4-47EF-BB91-6BA236B2B8F6</key>
 		<dict>
@@ -369,34 +369,6 @@
 			<string>Build target ConfinementTests</string>
 			<key>uniqueIdentifier</key>
 			<string>9B6824FE-5F41-4C6C-9954-9CF7D0F5516D</string>
-		</dict>
-		<key>9BC8631A-B725-4B28-9281-AF0FC5DE4534</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogMajorGroupSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.target.product-type.library.static</string>
-			<key>fileName</key>
-			<string>9BC8631A-B725-4B28-9281-AF0FC5DE4534.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>freeglut_static-gpcnhfsxqmdeovautcobhrvzdkki</string>
-			<key>timeStartedRecording</key>
-			<real>598297776.66249895</real>
-			<key>timeStoppedRecording</key>
-			<real>598297776.67305803</real>
-			<key>title</key>
-			<string>Build target freeglut_static</string>
-			<key>uniqueIdentifier</key>
-			<string>9BC8631A-B725-4B28-9281-AF0FC5DE4534</string>
 		</dict>
 		<key>A22449A0-05BF-403F-8A3B-1871F73DEEE5</key>
 		<dict>
@@ -510,6 +482,34 @@
 			<key>uniqueIdentifier</key>
 			<string>B2B26FA6-DECC-407A-93FE-577FAA4FB45F</string>
 		</dict>
+		<key>B637933C-BAFF-4FCB-9024-41A158BCAB80</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogMajorGroupSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.library.static</string>
+			<key>fileName</key>
+			<string>B637933C-BAFF-4FCB-9024-41A158BCAB80.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>glui-gpcnhfsxqmdeovautcobhrvzdkki</string>
+			<key>timeStartedRecording</key>
+			<real>598298339.66980696</real>
+			<key>timeStoppedRecording</key>
+			<real>598298339.68647397</real>
+			<key>title</key>
+			<string>Build target glui</string>
+			<key>uniqueIdentifier</key>
+			<string>B637933C-BAFF-4FCB-9024-41A158BCAB80</string>
+		</dict>
 		<key>BA65C443-2B86-44A3-A4EF-CA2E7558DF06</key>
 		<dict>
 			<key>className</key>
@@ -566,6 +566,34 @@
 			<key>uniqueIdentifier</key>
 			<string>D419DF78-EFE5-49A0-9957-CBC471BCFDE0</string>
 		</dict>
+		<key>E3349FCF-FB18-4D5E-A556-262F8CC3226A</key>
+		<dict>
+			<key>className</key>
+			<string>IDEActivityLogMajorGroupSection</string>
+			<key>documentTypeString</key>
+			<string>&lt;nil&gt;</string>
+			<key>domainType</key>
+			<string>Xcode.IDEActivityLogDomainType.target.product-type.library.static</string>
+			<key>fileName</key>
+			<string>E3349FCF-FB18-4D5E-A556-262F8CC3226A.xcactivitylog</string>
+			<key>hasPrimaryLog</key>
+			<true/>
+			<key>primaryObservable</key>
+			<dict>
+				<key>highLevelStatus</key>
+				<string>S</string>
+			</dict>
+			<key>signature</key>
+			<string>Box2D-gpcnhfsxqmdeovautcobhrvzdkki</string>
+			<key>timeStartedRecording</key>
+			<real>598298339.66975105</real>
+			<key>timeStoppedRecording</key>
+			<real>598298341.99171305</real>
+			<key>title</key>
+			<string>Build target Box2D</string>
+			<key>uniqueIdentifier</key>
+			<string>E3349FCF-FB18-4D5E-A556-262F8CC3226A</string>
+		</dict>
 		<key>ED645A81-AFB5-40FD-A956-FE924D39DA44</key>
 		<dict>
 			<key>className</key>
@@ -621,34 +649,6 @@
 			<string>Build target SlabAllocatorTests</string>
 			<key>uniqueIdentifier</key>
 			<string>F7619CAB-74AF-4C4D-B474-42C2D6FBF04C</string>
-		</dict>
-		<key>FA4DA6C1-B4B8-4B82-901C-6EA8B993773F</key>
-		<dict>
-			<key>className</key>
-			<string>IDEActivityLogMajorGroupSection</string>
-			<key>documentTypeString</key>
-			<string>&lt;nil&gt;</string>
-			<key>domainType</key>
-			<string>Xcode.IDEActivityLogDomainType.target.product-type.library.static</string>
-			<key>fileName</key>
-			<string>FA4DA6C1-B4B8-4B82-901C-6EA8B993773F.xcactivitylog</string>
-			<key>hasPrimaryLog</key>
-			<true/>
-			<key>primaryObservable</key>
-			<dict>
-				<key>highLevelStatus</key>
-				<string>S</string>
-			</dict>
-			<key>signature</key>
-			<string>Box2D-gpcnhfsxqmdeovautcobhrvzdkki</string>
-			<key>timeStartedRecording</key>
-			<real>598297776.66249895</real>
-			<key>timeStoppedRecording</key>
-			<real>598297776.67321301</real>
-			<key>title</key>
-			<string>Build target Box2D</string>
-			<key>uniqueIdentifier</key>
-			<string>FA4DA6C1-B4B8-4B82-901C-6EA8B993773F</string>
 		</dict>
 	</dict>
 	<key>preserveOldLogs</key>
