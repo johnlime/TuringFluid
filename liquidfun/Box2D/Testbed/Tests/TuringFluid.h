@@ -37,50 +37,97 @@ public:
             m_ground = m_world->CreateBody(&bd);
             {
                 b2PolygonShape shape;
-                shape.SetAsBox(0.05f, 2.0f, b2Vec2( 2.0f, 0.0f), 0.0);
-                m_ground->CreateFixture(&shape, 5.0f);
+                shape.SetAsBox(0.05f, 2.0f, b2Vec2( 2.0f, 2.0f), 0.0);
+                m_ground->CreateFixture(&shape, 0.0f);
             }
             {
                 b2PolygonShape shape;
-                shape.SetAsBox(0.05f, 2.0f, b2Vec2(-2.0f, 0.0f), 0.0);
-                m_ground->CreateFixture(&shape, 5.0f);
+                shape.SetAsBox(0.05f, 2.0f, b2Vec2(-2.0f, 2.0f), 0.0);
+                m_ground->CreateFixture(&shape, 0.0f);
             }
             {
                 b2PolygonShape shape;
-                shape.SetAsBox(2.0f, 0.05f, b2Vec2(0.0f, 2.0f), 0.0);
-                m_ground->CreateFixture(&shape, 5.0f);
+                shape.SetAsBox(2.0f, 0.05f, b2Vec2( 0.0f, 4.0f), 0.0);
+                m_ground->CreateFixture(&shape, 0.0f);
             }
             {
                 b2PolygonShape shape;
-                shape.SetAsBox(2.0f, 0.05f, b2Vec2(0.0f, -2.0f), 0.0);
-                m_ground->CreateFixture(&shape, 5.0f);
+                shape.SetAsBox(2.0f, 0.05f, b2Vec2( 0.0f, 0.0f), 0.0);
+                m_ground->CreateFixture(&shape, 0.0f);
             }
         }
         
         /* Particle System */
         // Set radius of every particle
-        m_particleSystem->SetRadius(0.025f);
+        m_particleSystem->SetRadius(0.035f);
         // Set damping of every particle
         m_particleSystem->SetDamping(0.2f);
-
-        /* Spawning Particle Group */
+        
+        /* Spawning Red Particle Group */
         {
+            // Define particle spawn area
+            b2PolygonShape shape;
+            shape.SetAsBox(0.75f, 0.75f, b2Vec2(-0.75f, 2.0f), 0.0);
+            
             // Define particle group
             b2ParticleGroupDef pd;
             pd.flags = b2_turingColorMixingParticle;
-
+            pd.shape = &shape;
+            pd.color.Set(255, 0, 0, 255);
+            
+            // Spawn particles
+            m_particleSystem->CreateParticleGroup(pd);
+        }
+        
+        /* Spawning Green Particle Group */
+        {
             // Define particle spawn area
             b2PolygonShape shape;
-            shape.SetAsBox(2.0f, 2.0f, b2Vec2(0.0f, 0.0f), 0.0);
+            shape.SetAsBox(0.75f, 0.75f, b2Vec2( 0.75f, 2.0f), 0.0);
+            
+            // Define particle group
+            b2ParticleGroupDef pd;
+            pd.flags = b2_turingColorMixingParticle;
             pd.shape = &shape;
-
+            pd.color.Set(0, 255, 0, 255);
+            
             // Spawn particles
-            b2ParticleGroup * const group = m_particleSystem->CreateParticleGroup(pd);
-            if (pd.flags & (b2_colorMixingParticle | b2_turingColorMixingParticle))
-            {
-                ColorParticleGroup(group, 0);
-            }
+            m_particleSystem->CreateParticleGroup(pd);
         }
+        
+//        /* Spawning Red Particle Group */
+//        {
+//            // Define particle spawn area
+//            b2CircleShape shape;
+//            shape.m_p.Set(0.5f, 2);
+//            shape.m_radius = 0.5f;
+//
+//            // Define particle group
+//            b2ParticleGroupDef pd;
+//            pd.flags = b2_turingColorMixingParticle;
+//            pd.shape = &shape;
+//            pd.color.Set(255, 0, 0, 255);
+//
+//            // Spawn particles
+//            m_particleSystem->CreateParticleGroup(pd);
+//        }
+//
+//        /* Spawning Green Particle Group */
+//        {
+//            // Define particle spawn area
+//            b2CircleShape shape;
+//            shape.m_p.Set(-0.5f, 2);
+//            shape.m_radius = 0.5f;
+//
+//            // Define particle group
+//            b2ParticleGroupDef pd;
+//            pd.flags = b2_turingColorMixingParticle;
+//            pd.shape = &shape;
+//            pd.color.Set(0, 255, 0, 255);
+//
+//            // Spawn particles
+//            m_particleSystem->CreateParticleGroup(pd);
+//        }
     }
 
     float32 GetDefaultViewZoom() const

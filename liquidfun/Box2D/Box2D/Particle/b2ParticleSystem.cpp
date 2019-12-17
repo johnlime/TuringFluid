@@ -3842,6 +3842,7 @@ void b2ParticleSystem::SolveTuringColorMixing()
             }
             
             // If the colliding particle is unique in unique objects
+            // First element of unique_objects is the particle index itself
             if (a_unique)
             {
                 std::vector<int32> tmp;
@@ -3858,11 +3859,12 @@ void b2ParticleSystem::SolveTuringColorMixing()
             }
         }
         // Loop through all unique particle indices and match with contact buffers
+        int8** all_results = new int8*[unique_objects.size()];
         for (int32 i = 0; i < unique_objects.size(); i++)
         {
             int32 a = unique_objects[i][0];
-            b2ParticleColor& colorA = m_colorBuffer.data[a];
-            std::vector<b2ParticleColor*> colorB;
+            b2ParticleColor colorA = m_colorBuffer.data[a];
+            std::vector<b2ParticleColor> colorB;
             for (int32 j = 1; j < unique_objects[i].size(); j++)
             {
                 int32 b;
@@ -3878,15 +3880,28 @@ void b2ParticleSystem::SolveTuringColorMixing()
                     m_flagsBuffer.data[b] &
                     b2_turingColorMixingParticle)
                 {
-                    colorB.push_back(&m_colorBuffer.data[b]);
+                    colorB.push_back(m_colorBuffer.data[b]);
                 }
             }
             // Use the static method to ensure certain compilers inline
             // this correctly.
-            b2ParticleColor::TuringMixColors(&colorA, colorB, colorMixing128);
+            all_results[i] = b2ParticleColor::TuringMixColors(colorA, colorB, colorMixing128);
         }
-        delete[] all_contact_buffers;
+        // Update all colors in unique_objects by looping through unique_objects once more
+        for (int32 i = 0; i < unique_objects.size(); i++)
+        {
+            m_colorBuffer.data[unique_objects[i][0]].r += all_results[i][0];
+            m_colorBuffer.data[unique_objects[i][0]].g += all_results[i][1];
+        }
         
+        // Deleting all allocated memory
+        delete[] all_contact_buffers;
+        // Update all colors in unique_objects by looping through unique_objects once more
+        for (int32 i = 0; i < unique_objects.size(); i++)
+        {
+            delete[] all_results[i];
+        }
+        delete[] all_results;
     }
 }
 
