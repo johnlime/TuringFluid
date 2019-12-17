@@ -75,6 +75,8 @@ enum b2ParticleFlag
 	/// Call b2ContactFilter when this particle interacts with other
 	/// particles.
 	b2_particleContactFilterParticle = 1 << 17,
+    /// Apply Turing pattern on contacting particles
+    b2_turingColorMixingParticle = 1 << 18,
 };
 
 /// Small color object for each particle
@@ -241,6 +243,22 @@ public:
 		colorB->b -= db;
 		colorB->a -= da;
 	}
+    
+    /* Turing Pattern Implementation */
+    static b2Inline void TuringMixColors(
+                                   b2ParticleColor * const colorA,
+                                   b2ParticleColor const colorUp,
+                                   b2ParticleColor const colorDown,
+                                   b2ParticleColor const colorLeft,
+                                   b2ParticleColor const colorRight,
+                                   const int32 coefficient
+                                   )
+    {
+        const uint8 dr = (uint8)((coefficient * (colorUp.r + colorDown.r + colorLeft.r + colorRight.r - 4 * colorA->r) / 0.01) >> k_bitsPerComponent);
+        const uint8 dg = (uint8)((coefficient * (colorUp.g + colorDown.g + colorLeft.g + colorRight.g - 4 * colorA->g) / 0.01) >> k_bitsPerComponent);
+        colorA->r += dr;
+        colorA->g += dg;
+    }
 
 private:
 	/// Generalization of the multiply operator using a scalar in-place

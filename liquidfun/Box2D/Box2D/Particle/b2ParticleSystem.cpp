@@ -3044,6 +3044,10 @@ void b2ParticleSystem::Solve(const b2TimeStep& step)
 		{
 			SolveColorMixing();
 		}
+        if (m_allParticleFlags & b2_turingColorMixingParticle)
+        {
+            SolveTuringColorMixing();
+        }
 		SolveGravity(subStep);
 		if (m_allParticleFlags & b2_staticPressureParticle)
 		{
@@ -3795,6 +3799,90 @@ void b2ParticleSystem::SolveColorMixing()
 	}
 }
 
+void b2ParticleSystem::SolveTuringColorMixing()
+{
+    // Assert that there is data on m_colorBuffer
+    b2Assert(m_colorBuffer.data);
+    // Define colorMixing function constant
+    const int32 colorMixing128 = (int32) (128 * m_def.colorMixingStrength);
+    // Execute the following only when colorMixing is not zero
+    if (colorMixing128) {
+        
+        // Define 2D-Array of all k contact buffers made with indices
+        int32* all_contact_buffers = new int32[m_contactBuffer.GetCount() * 2];
+        // Define list of all unique particle indices
+        std::vector<std::vector<int32> > unique_objects;
+        for (int32 k = 0; k < m_contactBuffer.GetCount(); k++)
+        {
+            // Store contact indices into contact buffers
+            const b2ParticleContact& contact = m_contactBuffer[k];
+            int32 a = contact.GetIndexA();
+            int32 b = contact.GetIndexB();
+            all_contact_buffers[k * 2] = a;
+            all_contact_buffers[k * 2 + 1] = b;
+            
+            // Store indices of particles into unique objects
+            int32 i = 0;
+            bool a_unique = true;
+            bool b_unique = true;
+            while (i < unique_objects.size())
+            {
+                // If the colliding particle is preexisting in unique objects
+                if (a == unique_objects[i][0])
+                {
+                    a_unique = false;
+                    unique_objects[i].push_back(k * 2);
+                }
+                if (b == unique_objects[i][0])
+                {
+                    b_unique = false;
+                    unique_objects[i].push_back(k * 2 + 1);
+                }
+                i++;
+            }
+            
+            // If the colliding particle is unique in unique objects
+            if (a_unique)
+            {
+                unique_objects.push_back(a);
+                unique_objects[unique_objects.size() - 1].push_back(k * 2);
+            }
+            if (b_unique)
+            {
+                unique_objects.push_back(b);
+                unique_objects[unique_objects.size() - 1].push_back(k * 2 + 1);
+            }
+        }
+        // Loop through all unique particle indices and match with contact buffers
+        for (int32 i = 0; i < unique_objects.size(); i++)
+        {
+            int32 a = unique_objects[i][0];
+            for (int32 j = 1; j < unique_objects[i].size(); j++)
+            {
+                if (unique_objects[i][j] % 2 == 0)
+                {
+                    all_contact_buffers[unique_objects[i][j] + 1]
+                }
+                else
+                {
+                    
+                }
+            }
+                
+            if (m_flagsBuffer.data[a] & m_flagsBuffer.data[b] &
+                b2_turingColorMixingParticle)
+            {
+                b2ParticleColor& colorA = m_colorBuffer.data[a];
+                b2ParticleColor& colorB = m_colorBuffer.data[b];
+                // Use the static method to ensure certain compilers inline
+                // this correctly.
+                b2ParticleColor::TuringMixColors(&colorA, &colorB, colorMixing128);
+            }
+        }
+        delete[] all_contact_buffers;
+    }
+}
+
 void b2ParticleSystem::SolveZombie()
 {
 	// removes particles with zombie flag
@@ -3890,7 +3978,7 @@ void b2ParticleSystem::SolveZombie()
 			allParticleFlags |= flags;
 		}
 	}
-
+    
 	// predicate functions
 	struct Test
 	{
@@ -4404,6 +4492,10 @@ void b2ParticleSystem::SetParticleFlags(int32 index, uint32 newFlags)
 		{
 			m_colorBuffer.data = RequestBuffer(m_colorBuffer.data);
 		}
+        if (newFlags & b2_turingColorMixingParticle)
+        {
+            m_colorBuffer.data = RequestBuffer(m_colorBuffer.data);
+        }
 		m_allParticleFlags |= newFlags;
 	}
 	*oldFlags = newFlags;

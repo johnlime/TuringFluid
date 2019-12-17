@@ -101,8 +101,11 @@
 #include "Sparky.h"
 #include "WaveMachine.h"
 
+#include "TuringFluid.h"
+
 TestEntry g_testEntries[] =
 {
+    {"Turing Fluid", TuringFluid::Create},
 	{"Sandbox", Sandbox::Create},
 	{"Sparky", Sparky::Create},
 	{"DamBreak", DamBreak::Create},

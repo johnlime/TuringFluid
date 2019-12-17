@@ -55,7 +55,7 @@ Test::Test()
 {
 	const b2ParticleSystemDef particleSystemDef;
 	b2Vec2 gravity;
-	gravity.Set(0.0f, -10.0f);
+	gravity.Set(0.0f, 0.0f);
 	m_world = new b2World(gravity);
 	m_particleSystem = m_world->CreateParticleSystem(&particleSystemDef);
 	m_bomb = NULL;

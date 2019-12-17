@@ -94,6 +94,8 @@ set(Testbed_Tests_SRCS
 	Tests/SoupStirrer.h
 	Tests/Sparky.h
 	Tests/WaveMachine.h
+ 
+    Tests/TuringFluid.h
 )
 
 # These are used to create visual studio folders.
